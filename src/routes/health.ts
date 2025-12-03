@@ -3,7 +3,7 @@ import { pool } from '../config/database';
 
 export const healthRouter = Router();
 
-healthRouter.get('/', async (req: Request, res: Response) => {
+healthRouter.get('/', async (_req: Request, res: Response) => {
   try {
     // Check database connection
     const dbResult = await pool.query('SELECT NOW()');
