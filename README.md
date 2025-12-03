@@ -2,6 +2,8 @@
 
 Production-grade EFSP (Electronic Filing Service Provider) backend system.
 
+**Status:** Phase 0 Complete - Server deployed on Railway with PostgreSQL
+
 ## Architecture
 
 Legal-Mails is a neutral infrastructure platform that integrates with Tyler Technologies EFM and other court systems.
