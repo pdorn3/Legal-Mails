@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal-Mails - EFSP API Platform</title>
+    <title>Legal-Mails — Coming Soon</title>
     <style>
         * {
             margin: 0;
@@ -12,275 +12,173 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e4e4e7;
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 800px;
             padding: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
         }
 
-        header {
-            text-align: center;
-            padding: 3rem 0;
-            color: white;
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+            font-size: 4rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            animation: fadeIn 0.8s ease 0.2s forwards;
         }
 
         .tagline {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-
-        .status-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .content {
-            background: white;
-            border-radius: 12px;
-            padding: 3rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            margin-bottom: 2rem;
-        }
-
-        h2 {
-            color: #667eea;
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-        }
-
-        h3 {
-            color: #764ba2;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
             font-size: 1.5rem;
+            color: #a1a1aa;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeIn 0.8s ease 0.4s forwards;
         }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .feature {
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-
-        .feature h4 {
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
-
-        .api-endpoint {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
-            font-family: 'Courier New', monospace;
-            border-left: 4px solid #764ba2;
-        }
-
-        .method {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 0.85rem;
-            margin-right: 0.5rem;
-        }
-
-        .method.post {
-            background: #28a745;
-            color: white;
-        }
-
-        .method.get {
-            background: #007bff;
-            color: white;
-        }
-
-        .architecture {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-
-        .architecture h3 {
-            color: white;
-            margin-top: 0;
-        }
-
-        .layer {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            color: #d4d4d8;
             backdrop-filter: blur(10px);
+            opacity: 0;
+            animation: fadeIn 0.8s ease 0.6s forwards;
         }
 
-        footer {
-            text-align: center;
-            color: white;
-            padding: 2rem 0;
-            opacity: 0.8;
-        }
-
-        code {
-            background: #f4f4f4;
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-        }
-
-        .status-indicator {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background: #28a745;
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #8b5cf6;
             border-radius: 50%;
-            margin-right: 0.5rem;
-            animation: pulse 2s infinite;
+            animation: pulse 2s ease-in-out infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.1);
+            }
         }
 
-        a {
-            color: #667eea;
-            text-decoration: none;
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
 
-        a:hover {
-            text-decoration: underline;
+        /* Background gradient effect */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .gradient-bg::after {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(-50%, -50%) translateY(0px);
+            }
+            50% {
+                transform: translate(-50%, -50%) translateY(-20px);
+            }
+        }
+
+        footer {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.875rem;
+            color: #52525b;
+            opacity: 0;
+            animation: fadeIn 0.8s ease 0.8s forwards;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .tagline {
+                font-size: 1.125rem;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="gradient-bg"></div>
+    
     <div class="container">
-        <header>
-            <h1>⚖️ Legal-Mails</h1>
-            <p class="tagline">Production-Grade EFSP API Platform</p>
-            <div class="status-badge">
-                <span class="status-indicator"></span>
-                API v1.0.0 - Operational
-            </div>
-        </header>
-
-        <div class="content">
-            <h2>Welcome to Legal-Mails</h2>
-            <p>Legal-Mails is a neutral Electronic Filing Service Provider (EFSP) backend that provides a clean, modern API for e-filing integrations with court systems including Tyler Technologies EFM.</p>
-
-            <div class="architecture">
-                <h3>3-Layer Architecture</h3>
-                <div class="layer">
-                    <strong>1. Client Layer</strong> (e.g., CallSlayer)
-                    <p>External applications submit cases via our JSON API and poll for status updates.</p>
-                </div>
-                <div class="layer">
-                    <strong>2. Legal-Mails Core API</strong>
-                    <p>Multi-tenant platform with authentication, business logic, PostgreSQL persistence, and document storage.</p>
-                </div>
-                <div class="layer">
-                    <strong>3. Connector Layer</strong>
-                    <p>Integrations with Tyler EFM and other court systems. Generates status events and manages external IDs.</p>
-                </div>
-            </div>
-
-            <h2>API Endpoints</h2>
-            
-            <div class="api-endpoint">
-                <span class="method get">GET</span>
-                <code>/health</code>
-                <p style="margin-top: 0.5rem; color: #666;">Check API and database health status</p>
-            </div>
-
-            <div class="api-endpoint">
-                <span class="method post">POST</span>
-                <code>/api/v1/submissions</code>
-                <p style="margin-top: 0.5rem; color: #666;">Create a new e-filing submission</p>
-            </div>
-
-            <div class="api-endpoint">
-                <span class="method get">GET</span>
-                <code>/api/v1/submissions/:id/status</code>
-                <p style="margin-top: 0.5rem; color: #666;">Get submission status with timeline and documents</p>
-            </div>
-
-            <h3>Authentication</h3>
-            <p>All API endpoints (except <code>/health</code>) require authentication via API key:</p>
-            <div class="api-endpoint">
-                <code>X-API-Key: your_api_key_here</code>
-            </div>
-
-            <h2>Features</h2>
-            <div class="features">
-                <div class="feature">
-                    <h4>🔐 Multi-Tenant</h4>
-                    <p>Isolated data per tenant with API key authentication</p>
-                </div>
-                <div class="feature">
-                    <h4>📄 Document Management</h4>
-                    <p>Support for multiple documents per submission</p>
-                </div>
-                <div class="feature">
-                    <h4>📊 Event Timeline</h4>
-                    <p>Complete audit log of submission lifecycle</p>
-                </div>
-                <div class="feature">
-                    <h4>🔌 Tyler EFM Ready</h4>
-                    <p>Built for integration with Tyler Technologies EFM</p>
-                </div>
-                <div class="feature">
-                    <h4>⚡ Production-Grade</h4>
-                    <p>TypeScript, PostgreSQL, strict validation</p>
-                </div>
-                <div class="feature">
-                    <h4>🚀 Scalable</h4>
-                    <p>Designed to handle thousands of users</p>
-                </div>
-            </div>
-
-            <h2>Development Status</h2>
-            <ul style="margin-left: 2rem; margin-top: 1rem;">
-                <li>✅ <strong>Phase 0:</strong> Server & Database Setup</li>
-                <li>✅ <strong>Phase 1:</strong> Database Schema (tenants, users, submissions, documents, events)</li>
-                <li>✅ <strong>Phase 2:</strong> API Endpoints</li>
-                <li>⏳ <strong>Phase 3:</strong> Stub Connector (simulated filing workflow)</li>
-                <li>⏳ <strong>Phase 4:</strong> Client Integration (CallSlayer)</li>
-                <li>⏳ <strong>Phase 5:</strong> Real Tyler EFM Integration</li>
-            </ul>
+        <div class="logo">⚖️</div>
+        <h1>Legal-Mails</h1>
+        <p class="tagline">Making legal document deployment frictionless</p>
+        <div class="status">
+            <span class="status-dot"></span>
+            <span>Coming Soon</span>
         </div>
-
-        <footer>
-            <p>&copy; 2025 Legal-Mails. All rights reserved.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem;">PROPRIETARY - Production EFSP Platform</p>
-        </footer>
     </div>
+
+    <footer>
+        &copy; 2025 Legal-Mails
+    </footer>
 </body>
 </html>
