@@ -2,6 +2,7 @@ import express, { Express, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
+import path from 'path';
 import { healthRouter } from './routes/health';
 import { submissionsRouter } from './routes/submissions';
 import { pool } from './config/database';
@@ -19,6 +20,9 @@ app.use(cors());
 // Body parsing middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serve static files from public directory
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Routes
 app.use('/health', healthRouter);
