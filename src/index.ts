@@ -28,6 +28,16 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use('/health', healthRouter);
 app.use('/api/v1/submissions', submissionsRouter);
 
+// Landing page route
+app.get('/landing', (_req: Request, res: Response) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
+
+// Root redirect to landing
+app.get('/', (_req: Request, res: Response) => {
+  res.redirect('/landing');
+});
+
 // 404 handler
 app.use((req: Request, res: Response) => {
   res.status(404).json({
