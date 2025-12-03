@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
 import { healthRouter } from './routes/health';
+import { submissionsRouter } from './routes/submissions';
 import { pool } from './config/database';
 
 // Load environment variables
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/health', healthRouter);
+app.use('/api/v1/submissions', submissionsRouter);
 
 // 404 handler
 app.use((req: Request, res: Response) => {
